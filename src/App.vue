@@ -1,9 +1,7 @@
 <script setup lang="ts">
-
+import AuthPage from './views/auth/index.vue'
 </script>
 
 <template>
-  <div class="text-2xl font-bold text-green-400 uppercase">
-    halo
-  </div>
+  <AuthPage />
 </template>
