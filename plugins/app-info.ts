@@ -1,13 +1,13 @@
-import type { PluginOption } from 'vite'
-import boxen from 'boxen'
-import picocolors from 'picocolors'
+import type { PluginOption } from 'vite';
+import boxen from 'boxen';
+import picocolors from 'picocolors';
 
 export default function createAppInfoPlugin(version: string): PluginOption {
   return {
     name: 'appInfo',
     apply: 'serve',
     async buildStart() {
-      const { bold, green, cyan, bgGreen, underline } = picocolors
+      const { bold, green, cyan, bgGreen, underline } = picocolors;
       // eslint-disable-next-line no-console
       console.log(
         boxen(
@@ -19,7 +19,7 @@ export default function createAppInfoPlugin(version: string): PluginOption {
             textAlignment: 'center',
           },
         ),
-      )
+      );
     },
-  }
+  };
 }

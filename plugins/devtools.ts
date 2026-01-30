@@ -1,5 +1,5 @@
-import VueDevtools from 'vite-plugin-vue-devtools'
+import VueDevtools from 'vite-plugin-vue-devtools';
 
 export default function createDevtoolsPlugin(enable: string) {
-  return enable === 'true' && VueDevtools()
+  return enable === 'true' && VueDevtools();
 }

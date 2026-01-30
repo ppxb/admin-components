@@ -1,3 +1,5 @@
-import { defineConfig } from './internal/lint-config/eslint-config';
+import antfu from '@antfu/eslint-config';
 
-export default defineConfig();
+export default antfu({
+  stylistic: false,
+});
