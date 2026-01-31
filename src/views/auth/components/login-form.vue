@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import {
@@ -11,6 +12,7 @@ import {
 } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
 import { Ripple } from '@/components/ui/ripple';
+import { $t } from '@/locales';
 
 const username = ref('john.doe@example.com');
 const password = ref('123456');
@@ -53,7 +55,7 @@ function handleLogin() {
                   href="#"
                   class="ml-auto text-sm underline-offset-2 hover:underline"
                 >
-                  Forgot your password?
+                  {{ $t('auth.forgetPassword') }}
                 </a>
               </div>
               <Input
@@ -65,13 +67,15 @@ function handleLogin() {
             </Field>
 
             <Field>
-              <Button type="submit" @click="handleLogin"> Login </Button>
+              <Button type="submit" @click="handleLogin">
+                {{ $t('auth.login') }}
+              </Button>
             </Field>
 
             <FieldSeparator
-              class="*:data-[slot=field-separator-content]:bg-card text-[12px] font-bold [&_.absolute]:top-2"
+              class="*:data-[slot=field-separator-content]:bg-card text-[12px] font-bold uppercase [&_.absolute]:top-2"
             >
-              OR CONTINUE WITH
+              {{ $t('auth.or') }}
             </FieldSeparator>
 
             <Field class="grid grid-cols-3 gap-4">
@@ -126,7 +130,8 @@ function handleLogin() {
             </Field>
 
             <FieldDescription class="text-center">
-              Don't have an account? <a href="#">Sign up</a>
+              {{ $t('auth.haveNotAccount') }}
+              <a href="#"> {{ $t('auth.signUp') }}</a>
             </FieldDescription>
           </FieldGroup>
         </form>
