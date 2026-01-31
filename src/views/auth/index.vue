@@ -19,8 +19,14 @@ async function toggleLanguage() {
     className="bg-muted flex min-h-svh flex-col items-center justify-center p-6 md:p-10"
   >
     <div className="w-full max-w-sm md:max-w-4xl">
-      <div class="absolute top-4 right-4 md:top-6 md:right-6">
-        <Button variant="ghost" size="sm" type="button" @click="toggleLanguage">
+      <div class="absolute top-4 right-4 rounded-xl border md:top-6 md:right-6">
+        <Button
+          variant="ghost"
+          size="sm"
+          type="button"
+          class="rounded-xl"
+          @click="toggleLanguage"
+        >
           {{ isZhCN ? 'English' : '简体中文' }}
         </Button>
       </div>
