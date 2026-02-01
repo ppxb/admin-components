@@ -12,6 +12,7 @@
     "prepare": "lefthook install"
   },
   "dependencies": {
+    "@iconify/vue": "^5.0.0",
     "@tailwindcss/vite": "^4.1.18",
     "@vueuse/core": "^14.1.0",
     "class-variance-authority": "^0.7.1",
