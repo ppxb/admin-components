@@ -97,7 +97,7 @@ async function loadLocaleMessages(lang: I18n.SupportedLanguagesType) {
 }
 
 async function setupI18n(app: App, options: I18n.LocaleSetupOptions = {}) {
-  const { defaultLocale = 'zh-CN', missingWarn = !import.meta.env.PROD } =
+  const { defaultLocale = 'en-US', missingWarn = !import.meta.env.PROD } =
     options;
 
   app.use(i18n);
