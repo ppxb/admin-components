@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { SupportedLanguagesType } from '@/types/i18n';
 import { computed } from 'vue';
 import { LucideLanguage } from '@/components/icons';
 import { Button } from '@/components/ui/button';
@@ -17,7 +18,7 @@ const languages = [
 
 const currentLocale = computed(() => i18n.global.locale.value);
 
-async function changeLanguage(lang: I18n.SupportedLanguagesType) {
+async function changeLanguage(lang: SupportedLanguagesType) {
   await loadLocaleMessages(lang);
 }
 </script>
