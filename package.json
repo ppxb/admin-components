@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
     "preview": "vite preview",
+    "update:deps": "npx taze -r -w",
     "lint": "eslint . --cache && prettier . --ignore-unknown --check --cache && stylelint \"**/*.{vue,css,less,scss}\" --cache",
     "lint:fix": "stylelint \"**/*.{vue,css,less,scss}\" --cache --fix && eslint . --cache --fix && prettier . --write --cache --log-level warn",
     "prepare": "lefthook install"
@@ -14,7 +15,7 @@
   "dependencies": {
     "@iconify/vue": "^5.0.0",
     "@tailwindcss/vite": "^4.1.18",
-    "@vueuse/core": "^14.1.0",
+    "@vueuse/core": "^14.2.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-vue-next": "^0.563.0",
@@ -30,7 +31,7 @@
   "devDependencies": {
     "@antfu/eslint-config": "^7.2.0",
     "@stylistic/stylelint-plugin": "^5.0.1",
-    "@types/node": "^25.1.0",
+    "@types/node": "^25.2.0",
     "@vitejs/plugin-vue": "^6.0.3",
     "@vue/tsconfig": "^0.8.1",
     "boxen": "^8.0.1",
@@ -41,7 +42,7 @@
     "postcss-html": "^1.8.1",
     "prettier": "^3.8.1",
     "prettier-plugin-tailwindcss": "^0.7.2",
-    "stylelint": "^17.0.0",
+    "stylelint": "^17.1.0",
     "stylelint-config-recess-order": "^7.6.0",
     "stylelint-config-recommended": "^18.0.0",
     "stylelint-config-recommended-vue": "^1.6.1",
@@ -49,7 +50,7 @@
     "stylelint-order": "^7.0.1",
     "stylelint-prettier": "^5.0.3",
     "typescript": "^5.9.3",
-    "vite": "^8.0.0-beta.10",
+    "vite": "8.0.0-beta.11",
     "vite-plugin-html": "^3.2.2",
     "vite-plugin-vue-devtools": "^8.0.5",
     "vue-tsc": "^3.2.4"
