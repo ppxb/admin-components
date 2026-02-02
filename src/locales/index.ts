@@ -1,5 +1,10 @@
 import type { App } from 'vue';
 import type { Locale, useI18n } from 'vue-i18n';
+import type {
+  ImportLocaleFn,
+  LocaleSetupOptions,
+  SupportedLanguagesType,
+} from '@/types/i18n';
 import { unref } from 'vue';
 import { createI18n } from 'vue-i18n';
 
@@ -19,7 +24,7 @@ const i18n = createI18n({
 function loadLocalesMapFromDir(
   regexp: RegExp,
   modules: Record<string, () => Promise<unknown>>,
-): Record<Locale, I18n.ImportLocaleFn> {
+): Record<Locale, ImportLocaleFn> {
   const localesRaw: Record<Locale, Record<string, () => Promise<unknown>>> = {};
 
   for (const path in modules) {
@@ -56,7 +61,7 @@ const modules = import.meta.glob('./langs/**/*.json');
  *
  * @param lang 语言
  */
-async function loadAppMessages(lang: I18n.SupportedLanguagesType) {
+async function loadAppMessages(lang: SupportedLanguagesType) {
   const localesMap = loadLocalesMapFromDir(
     /\.\/langs\/([^/]+)\/(.*)\.json$/,
     modules,
@@ -81,7 +86,7 @@ function setI18nLanguage(locale: Locale) {
  *
  * @param lang 语言
  */
-async function loadLocaleMessages(lang: I18n.SupportedLanguagesType) {
+async function loadLocaleMessages(lang: SupportedLanguagesType) {
   if (unref(i18n.global.locale) === lang) {
     return lang;
   }
@@ -96,7 +101,7 @@ async function loadLocaleMessages(lang: I18n.SupportedLanguagesType) {
   setI18nLanguage(lang);
 }
 
-async function setupI18n(app: App, options: I18n.LocaleSetupOptions = {}) {
+async function setupI18n(app: App, options: LocaleSetupOptions = {}) {
   const { defaultLocale = 'en-US', missingWarn = !import.meta.env.PROD } =
     options;
 
