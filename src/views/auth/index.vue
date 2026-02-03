@@ -12,7 +12,7 @@ const appTitle = import.meta.env.VITE_APP_TITLE;
     <div className="w-full max-w-sm md:max-w-4xl">
       <div class="mb-8 flex items-center justify-between">
         <div class="flex items-center gap-2">
-          <img src="/public/logo.svg" alt="logo" class="w-6 md:w-8" />
+          <img src="/public/logo.svg" alt="logo" class="w-6 md:w-8">
           <div class="font-bold md:text-lg">
             {{ appTitle }}
           </div>
