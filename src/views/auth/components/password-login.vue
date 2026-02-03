@@ -103,8 +103,7 @@ function handleLogin() {
     </Card>
 
     <FieldDescription class="px-6 text-center">
-      By clicking continue, you agree to our
-      <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
+      © 2026 Continew Org. All rights reserved.
     </FieldDescription>
   </div>
 </template>
