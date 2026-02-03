@@ -14,8 +14,9 @@ import { Input } from '@/components/ui/input';
 import { Ripple } from '@/components/ui/ripple';
 import { $t } from '@/locales';
 
-const username = ref('john.doe@example.com');
-const password = ref('123456');
+const tenantId = ref('');
+const username = ref('admin');
+const password = ref('admin123');
 
 function handleLogin() {
   // eslint-disable-next-line no-console
@@ -29,53 +30,70 @@ function handleLogin() {
       <CardContent class="grid p-0 md:grid-cols-2">
         <form class="p-6 md:p-8" @submit.prevent="handleLogin">
           <FieldGroup>
-            <div class="flex flex-col items-center gap-2 text-center">
-              <h1 class="text-2xl font-bold">Welcome back</h1>
-              <p class="text-muted-foreground text-balance">
-                Login to your account
+            <div class="flex flex-col gap-2">
+              <h1 class="text-2xl font-bold">
+                {{ $t('auth.account.title') }}
+              </h1>
+              <p class="text-muted-foreground text-sm text-balance">
+                {{ $t('auth.account.desc') }}
               </p>
             </div>
 
             <Field>
-              <FieldLabel for="email"> Email </FieldLabel>
+              <FieldLabel for="tenantId">
+                {{ $t('auth.account.form.tenant.label') }}
+              </FieldLabel>
               <Input
-                id="email"
+                id="tenantId"
+                v-model="tenantId"
+                :placeholder="$t('auth.account.form.tenant.placeholder')"
+                required
+              />
+            </Field>
+
+            <Field>
+              <FieldLabel for="username">
+                {{ $t('auth.account.form.username.label') }}
+              </FieldLabel>
+              <Input
+                id="username"
                 v-model="username"
-                type="email"
-                placeholder="m@example.com"
+                :placeholder="$t('auth.account.form.username.placeholder')"
                 required
               />
             </Field>
 
             <Field>
               <div class="flex items-center">
-                <FieldLabel for="password"> Password </FieldLabel>
-
+                <FieldLabel for="password">
+                  {{ $t('auth.account.form.password.label') }}
+                </FieldLabel>
                 <a
                   href="#"
                   class="ml-auto text-sm underline-offset-2 hover:underline"
                 >
-                  {{ $t('auth.forgetPassword') }}
+                  {{ $t('auth.account.forgetPwd') }}
                 </a>
               </div>
               <Input
                 id="password"
                 v-model="password"
                 type="password"
+                :placeholder="$t('auth.account.form.password.placeholder')"
                 required
               />
             </Field>
 
             <Field>
               <Button type="submit" @click="handleLogin">
-                {{ $t('auth.login') }}
+                {{ $t('auth.account.submit') }}
               </Button>
             </Field>
 
             <FieldSeparator
               class="*:data-[slot=field-separator-content]:bg-card text-[12px] font-bold uppercase [&_.absolute]:top-2"
             >
-              {{ $t('auth.or') }}
+              {{ $t('auth.account.divider') }}
             </FieldSeparator>
 
             <Field class="grid grid-cols-3 gap-4">
@@ -130,8 +148,8 @@ function handleLogin() {
             </Field>
 
             <FieldDescription class="text-center">
-              {{ $t('auth.haveNotAccount') }}
-              <a href="#"> {{ $t('auth.signUp') }}</a>
+              {{ $t('auth.account.noAccount') }}
+              <a href="#"> {{ $t('auth.account.signUp') }}</a>
             </FieldDescription>
           </FieldGroup>
         </form>

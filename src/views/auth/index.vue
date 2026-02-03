@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import ToggleLanguage from '@/components/toggle-language.vue';
-import LoginForm from './components/login-form.vue';
+import PasswordLogin from './components/password-login.vue';
 </script>
 
 <template>
@@ -11,7 +11,7 @@ import LoginForm from './components/login-form.vue';
       <div class="absolute top-6 right-6 md:top-6 md:right-6">
         <ToggleLanguage />
       </div>
-      <LoginForm />
+      <PasswordLogin />
     </div>
   </div>
 </template>
