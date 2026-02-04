@@ -1,6 +1,7 @@
 import type {
   AxiosError,
   AxiosInstance,
+  AxiosRequestConfig,
   AxiosResponse,
   InternalAxiosRequestConfig,
 } from 'axios';
@@ -17,7 +18,7 @@ export type ResponseTransform<Input = any, Output = any> = (
   input: Input,
 ) => Output | Promise<Output>;
 
-export interface RequestOptions<
+export interface RequestOption<
   ResponseData,
   ApiData = ResponseData,
   State extends Record<string, unknown> = Record<string, unknown>,
@@ -34,6 +35,8 @@ export interface RequestOptions<
 
   /**
    * 将响应数据转换为接口层数据
+   *
+   * @deprecated will remove in next major version
    */
   transformBackendResponse: ResponseTransform<
     AxiosResponse<ResponseData>,
@@ -66,7 +69,7 @@ export interface RequestOptions<
   onError: (error: AxiosError<ResponseData>) => void | Promise<void>;
 }
 
-export interface ResponseMap {
+interface ResponseMap {
   blob: Blob;
   text: string;
   arrayBuffer: ArrayBuffer;
@@ -135,4 +138,10 @@ export interface FlatRequestInstance<
   <T extends ApiData = ApiData, R extends ResponseType = 'json'>(
     config: CustomAxiosRequestConfig<R>,
   ): Promise<FlatResponseData<ResponseData, MappedType<R, T>>>;
+}
+
+export interface RequestInstanceState {
+  refreshTokenPromise: Promise<boolean> | null;
+  errMsgStack: string[];
+  [key: string]: unknown;
 }

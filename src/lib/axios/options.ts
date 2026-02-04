@@ -1,6 +1,6 @@
 import type { CreateAxiosDefaults } from 'axios';
 import type { IAxiosRetryConfig } from 'axios-retry';
-import type { RequestOptions } from '@/types/axios';
+import type { RequestOption } from '@/types/request';
 import qs from 'qs';
 import { isHttpSuccess } from './shared';
 
@@ -8,8 +8,8 @@ export function createDefaultOptions<
   ResponseData,
   ApiData = ResponseData,
   State extends Record<string, unknown> = Record<string, unknown>,
->(options?: Partial<RequestOptions<ResponseData, ApiData, State>>) {
-  const opts: RequestOptions<ResponseData, ApiData, State> = {
+>(options?: Partial<RequestOption<ResponseData, ApiData, State>>) {
+  const opts: RequestOption<ResponseData, ApiData, State> = {
     defaultState: {} as State,
     transform: async (response) => response.data as unknown as ApiData,
     transformBackendResponse: async (response) =>

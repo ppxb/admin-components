@@ -3,7 +3,7 @@ import type {
   AxiosResponse,
   InternalAxiosRequestConfig,
 } from 'axios';
-import type { ResponseType } from '@/types/axios';
+import type { ResponseType } from '@/types/request';
 
 /**
  * 获取请求的 Content-Type
