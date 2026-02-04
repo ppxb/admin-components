@@ -1,7 +1,7 @@
-<script setup lang="ts">
-import AuthPage from './views/auth/index.vue';
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <AuthPage />
+  <div>
+    <RouterView />
+  </div>
 </template>
