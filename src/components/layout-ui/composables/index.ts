@@ -1,1 +1,1 @@
-export *  from './use-layout-style'
+export * from './use-layout-style';

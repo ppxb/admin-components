@@ -1,4 +1,3 @@
-
 import type { RouteRecordRaw } from 'vue-router';
 
 import type { MenuRecordRaw } from '@/types/menu-record';

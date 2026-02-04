@@ -1,4 +1,3 @@
-
 import type { LayoutProps } from '../layout';
 import type { LayoutType } from '@/types/app';
 

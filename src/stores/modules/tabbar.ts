@@ -9,11 +9,7 @@ import type { TabDefinition } from '@/types';
 import { acceptHMRUpdate, defineStore } from 'pinia';
 import { toRaw } from 'vue';
 
-import {
-  openRouteInNewWindow,
-  startProgress,
-  stopProgress,
-} from '@/utils';
+import { openRouteInNewWindow, startProgress, stopProgress } from '@/utils';
 
 interface TabbarState {
   /**

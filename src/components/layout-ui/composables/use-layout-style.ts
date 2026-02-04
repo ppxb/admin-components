@@ -13,7 +13,6 @@ import {
 } from '@/constants';
 import { getElementVisibleRect } from '@/utils';
 
-
 /**
  * @zh_CN content style
  */

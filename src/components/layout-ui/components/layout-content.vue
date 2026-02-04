@@ -1,9 +1,8 @@
 <script setup lang="ts">
-
 import type { CSSProperties } from 'vue';
 import type { ContentCompactType } from '@/types/app';
 
-import { Slot } from  'reka-ui';
+import { Slot } from 'reka-ui';
 import { computed } from 'vue';
 import { useLayoutContentStyle } from '../composables';
 
@@ -54,7 +53,7 @@ const style = computed((): CSSProperties => {
 </script>
 
 <template>
-  <main ref="contentElement" :style="style" class="relative bg-background-deep">
+  <main ref="contentElement" :style="style" class="bg-background-deep relative">
     <Slot :style="overlayStyle">
       <slot name="overlay"></slot>
     </Slot>

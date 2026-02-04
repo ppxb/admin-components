@@ -1,6 +1,19 @@
-import type { BreadcrumbStyleType, BuiltinThemeType, ContentCompactType, LayoutHeaderMenuAlignType, LayoutHeaderModeType, LayoutType, LoginExpiredModeType, NavigationStyleType, PageTransitionType, PreferencesButtonPositionType, TabsStyleType, ThemeModeType } from "./app";
-import type { DeepPartial } from "./helper";
-import type { SupportedLanguagesType } from "./i18n";
+import type {
+  BreadcrumbStyleType,
+  BuiltinThemeType,
+  ContentCompactType,
+  LayoutHeaderMenuAlignType,
+  LayoutHeaderModeType,
+  LayoutType,
+  LoginExpiredModeType,
+  NavigationStyleType,
+  PageTransitionType,
+  PreferencesButtonPositionType,
+  TabsStyleType,
+  ThemeModeType,
+} from './app';
+import type { DeepPartial } from './helper';
+import type { SupportedLanguagesType } from './i18n';
 
 interface AppPreferences {
   /** 检查更新轮询时间 */
