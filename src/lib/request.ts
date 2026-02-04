@@ -5,7 +5,7 @@ import { getAuthorization } from './utils';
 
 export const request = createFlatRequest(
   {
-    baseURL: import.meta.env.VITE_API_PREFIX,
+    baseURL: import.meta.env.VITE_API_URL,
   },
   {
     defaultState: {

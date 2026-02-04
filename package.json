@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc -b && vite build",
+    "dev": "pnpm vite --mode development",
+    "build": "pnpm vite build --mode production",
     "preview": "vite preview",
     "update:deps": "npx taze -r -w",
     "lint": "eslint . --cache && prettier . --ignore-unknown --check --cache && stylelint \"**/*.{vue,css,less,scss}\" --cache",
