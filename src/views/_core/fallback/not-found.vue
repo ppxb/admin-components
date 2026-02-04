@@ -7,7 +7,7 @@ import { Card, CardContent } from '@/components/ui/card';
 const router = useRouter();
 
 function goHome() {
-  router.push('/auth');
+  router.push('/');
 }
 
 function goBack() {
@@ -23,9 +23,7 @@ function goBack() {
       <Card class="overflow-hidden">
         <CardContent class="grid gap-6 p-6 md:p-8">
           <div class="flex flex-col items-center gap-2 text-center">
-            <div class="text-primary font-mono text-8xl font-bold">
-              404
-            </div>
+            <div class="text-primary font-mono text-8xl font-bold">404</div>
             <h1 class="text-2xl font-bold">
               {{ $t('common.pageNotFound') }}
             </h1>
