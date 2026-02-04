@@ -1,2 +1,2 @@
-export * from './nprogress'
-export * from './tree'
+export * from './nprogress';
+export * from './tree';

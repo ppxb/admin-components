@@ -16,12 +16,14 @@ function goBack() {
 </script>
 
 <template>
-  <div class="bg-muted flex min-h-svh flex-col items-center justify-center p-6 md:p-10">
+  <div
+    class="bg-muted flex min-h-svh flex-col items-center justify-center p-6 md:p-10"
+  >
     <div class="w-full max-w-md">
       <Card class="overflow-hidden">
         <CardContent class="grid gap-6 p-6 md:p-8">
           <div class="flex flex-col items-center gap-2 text-center">
-            <div class="font-bold text-8xl font-mono text-primary">
+            <div class="text-primary font-mono text-8xl font-bold">
               404
             </div>
             <h1 class="text-2xl font-bold">
