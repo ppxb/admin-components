@@ -1,6 +1,6 @@
 export type StorageType = 'local' | 'session';
 
-function createStorage<T extends object>(
+export function createStorage<T extends object>(
   type: StorageType,
   storagePrefix: string,
 ) {
