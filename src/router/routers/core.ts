@@ -2,12 +2,16 @@ import type { RouteRecordRaw } from 'vue-router';
 
 const coreRoutes: RouteRecordRaw[] = [
   {
+    path: '/',
+    redirect: '/auth',
+  },
+  {
     component: () => import('@/views/auth/index.vue'),
     meta: {
       title: 'Auth',
     },
     name: 'Auth',
-    path: '/',
+    path: '/auth',
   },
 ];
 

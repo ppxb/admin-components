@@ -1,10 +1,11 @@
 import { createApp } from 'vue';
 
 import { setupI18n } from '@/locales';
-import App from './App.vue';
+import { setupRouter } from '@/router';
 
 import { setupRouter } from './router';
 import { initStores } from './stores';
+import App from './App.vue';
 import '@/styles/index.css';
 
 async function bootstrap() {

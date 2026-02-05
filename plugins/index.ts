@@ -11,11 +11,10 @@ export default function createVitePlugins(viteEnv: ImportMetaEnv) {
   const { VITE_ENABLE_DEVTOOLS, VITE_APP_VERSION, VITE_APP_TITLE } = viteEnv;
 
   const vitePlugins: (PluginOption | PluginOption[])[] = [vue(), tailwindcss()];
+  vitePlugins.push(createDevtools(VITE_ENABLE_DEVTOOLS));
   vitePlugins.push(createAppInfoPlugin(VITE_APP_VERSION));
   vitePlugins.push(createHtmlPlugin(VITE_APP_TITLE));
   vitePlugins.push(createCompressionPlugin());
-  vitePlugins.push(createDevtools(VITE_ENABLE_DEVTOOLS));
-  vitePlugins.push();
 
   return vitePlugins;
 }
