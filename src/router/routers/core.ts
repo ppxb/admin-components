@@ -13,6 +13,11 @@ const coreRoutes: RouteRecordRaw[] = [
     name: 'Auth',
     path: '/auth',
   },
+  {
+    component: () => import('@/views/test/index.vue'),
+    name: 'Test',
+    path: '/test',
+  },
 ];
 
 const fallbackNotFoundRoute: RouteRecordRaw = {
