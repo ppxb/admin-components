@@ -8,15 +8,15 @@ const { collapsed, hovered } = useSidebar();
 </script>
 
 <template>
-  <LayoutBody class="bg-background">
+  <LayoutBody class="">
     <Sidebar />
 
-    <div class="flex min-h-screen flex-col">
+    <div class="relative flex min-h-screen flex-col">
       <LayoutHeader />
 
-      <main class="flex-1 overflow-auto p-6">
+      <main class="flex-1 overflow-auto p-6 pt-26">
         <div class="mx-auto max-w-6xl space-y-8">
-          <section class="bg-card rounded-lg border p-6 shadow-sm">
+          <section class="rounded-lg border bg-red-500 p-6 shadow-sm">
             <h2 class="mb-4 text-2xl font-bold">欢迎使用 Vue3 布局系统 🎉</h2>
             <p class="text-muted-foreground mb-4">
               响应式布局，完全参考 Fumadocs 的实现方式：

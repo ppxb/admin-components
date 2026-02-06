@@ -14,13 +14,14 @@ const { collapsed, toggleSidebar } = useSidebar();
 
 const headerClass = computed(() => {
   return cn(
-    'sticky top-0',
+    'absolute top-0 right-0',
     'flex justify-end items-center gap-4',
-    'border-b bg-background/95 backdrop-blur',
+    'border-b bg-background/80 backdrop-blur-sm',
     'px-4 h-16',
     'transition-all duration-200',
+    !collapsed.value && 'left-0',
     collapsed.value && [
-      'md:top-4 md:mx-4 md:rounded-2xl md:border md:absolute md:right-0',
+      'md:top-4 md:mx-4 md:rounded-2xl md:border md:absolute',
     ],
     props.class,
   );
@@ -40,19 +41,6 @@ const headerClass = computed(() => {
     <div class="flex items-center gap-4">
       <slot name="left">
         <h1 class="text-xl font-semibold md:hidden">Vue3 布局</h1>
-
-        <div class="hidden max-w-md md:block">
-          <div class="relative">
-            <Search
-              class="text-muted-foreground absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2"
-            />
-            <input
-              type="text"
-              placeholder="搜索..."
-              class="bg-muted/50 focus:ring-ring h-9 w-full rounded-lg border pr-4 pl-10 text-sm focus:ring-2 focus:outline-none"
-            />
-          </div>
-        </div>
       </slot>
     </div>
 
