@@ -16,7 +16,9 @@ const { collapsed, hovered } = useSidebar();
     <div class="flex min-h-screen flex-col">
       <!-- 顶部导航（仅移动端） -->
       <LayoutHeader>
-        <h1 class="text-xl font-semibold">Vue3 响应式布局</h1>
+        <h1 class="text-xl font-semibold">
+          Vue3 响应式布局
+        </h1>
         <div class="ml-auto flex items-center gap-4">
           <span class="text-muted-foreground text-sm">
             {{ collapsed ? '已折叠' : '已展开' }}
@@ -30,7 +32,9 @@ const { collapsed, hovered } = useSidebar();
         <div class="mx-auto max-w-4xl space-y-8">
           <!-- 欢迎区域 -->
           <section class="bg-card rounded-lg border p-6 shadow-sm">
-            <h2 class="mb-4 text-2xl font-bold">欢迎使用 Vue3 布局系统 🎉</h2>
+            <h2 class="mb-4 text-2xl font-bold">
+              欢迎使用 Vue3 布局系统 🎉
+            </h2>
             <p class="text-muted-foreground mb-4">
               这是一个功能完整的响应式布局示例，完全参考 Fumadocs 的实现方式：
             </p>
@@ -60,16 +64,16 @@ const { collapsed, hovered } = useSidebar();
 
           <!-- 使用说明 -->
           <section class="bg-card rounded-lg border p-6 shadow-sm">
-            <h3 class="mb-3 text-lg font-semibold">💡 使用说明</h3>
+            <h3 class="mb-3 text-lg font-semibold">
+              💡 使用说明
+            </h3>
             <div class="text-muted-foreground space-y-4 text-sm">
               <div class="bg-muted/50 rounded-md p-4">
                 <strong class="text-foreground mb-2 block">🖥️ 桌面端：</strong>
                 <ul class="list-inside list-disc space-y-1">
                   <li>
                     点击侧边栏右上角的
-                    <code class="bg-background rounded px-1 py-0.5 text-xs"
-                      >&lt;</code
-                    >
+                    <code class="bg-background rounded px-1 py-0.5 text-xs">&lt;</code>
                     按钮折叠侧边栏
                   </li>
                   <li>折叠后，侧边栏完全移出视口，主内容占满全宽</li>
@@ -95,7 +99,9 @@ const { collapsed, hovered } = useSidebar();
           <section
             class="from-primary/5 to-primary/10 rounded-lg border bg-linear-to-br p-6 shadow-sm"
           >
-            <h3 class="mb-3 text-lg font-semibold">📊 当前状态</h3>
+            <h3 class="mb-3 text-lg font-semibold">
+              📊 当前状态
+            </h3>
             <div class="grid gap-3 sm:grid-cols-2">
               <div
                 class="bg-background/80 flex items-center gap-3 rounded-md p-3 backdrop-blur"
@@ -105,7 +111,9 @@ const { collapsed, hovered } = useSidebar();
                   :class="[collapsed ? 'bg-amber-500' : 'bg-green-500']"
                 />
                 <div>
-                  <div class="text-muted-foreground text-xs">侧边栏</div>
+                  <div class="text-muted-foreground text-xs">
+                    侧边栏
+                  </div>
                   <div class="font-semibold">
                     {{ collapsed ? '已折叠' : '已展开' }}
                   </div>
@@ -119,7 +127,9 @@ const { collapsed, hovered } = useSidebar();
                   :class="[hovered ? 'bg-blue-500' : 'bg-gray-400']"
                 />
                 <div>
-                  <div class="text-muted-foreground text-xs">悬停状态</div>
+                  <div class="text-muted-foreground text-xs">
+                    悬停状态
+                  </div>
                   <div class="font-semibold">
                     {{ hovered ? '悬停中' : '未悬停' }}
                   </div>
@@ -130,7 +140,9 @@ const { collapsed, hovered } = useSidebar();
 
           <!-- 演示卡片 -->
           <section class="space-y-3">
-            <h3 class="text-lg font-semibold">📦 内容示例</h3>
+            <h3 class="text-lg font-semibold">
+              📦 内容示例
+            </h3>
             <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               <div
                 v-for="i in 6"
