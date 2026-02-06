@@ -19,7 +19,9 @@ const sidebarClass = computed(() => {
     'h-full min-h-[100dvh]',
     'bg-white border-r border-gray-200 relative',
     'w-[var(--ca-sidebar-width)] transition-[width,transform] duration-300 ease-in-out',
-    collapsed.value ? '-translate-x-full opacity-0 pointer-events-none' : 'translate-x-0 opacity-100',
+    collapsed.value
+      ? '-translate-x-full opacity-0 pointer-events-none'
+      : 'translate-x-0 opacity-100',
     props.class,
   );
 });
@@ -46,8 +48,12 @@ const panelLeftIconClass = cn(
     <slot>
       <div class="flex h-full flex-col gap-4 p-4">
         <div class="pt-2">
-          <h3 class="text-lg font-bold text-gray-800">侧边栏标题</h3>
-          <p class="mt-1 text-sm text-gray-500">自定义侧边栏内容</p>
+          <h3 class="text-lg font-bold text-gray-800">
+            侧边栏标题
+          </h3>
+          <p class="mt-1 text-sm text-gray-500">
+            自定义侧边栏内容
+          </p>
         </div>
 
         <button
@@ -60,7 +66,9 @@ const panelLeftIconClass = cn(
         </button>
 
         <div class="mt-2 flex-1">
-          <div class="text-sm text-gray-600">侧边栏内容区域</div>
+          <div class="text-sm text-gray-600">
+            侧边栏内容区域
+          </div>
         </div>
 
         <div class="border-t border-gray-100 pt-2 text-xs text-gray-400">
