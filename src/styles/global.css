@@ -147,3 +147,78 @@
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes na-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes na-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes na-sidebar-in {
+  from {
+    transform: translateX(var(--na-sidebar-drawer-offset, 100%));
+  }
+}
+
+@keyframes na-sidebar-out {
+  to {
+    transform: translateX(var(--na-sidebar-drawer-offset, 100%));
+  }
+}
+
+@keyframes na-collapsible-down {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    height: var(--radix-collapsible-content-height);
+  }
+}
+
+@keyframes na-collapsible-up {
+  from {
+    height: var(--radix-collapsible-content-height);
+  }
+  to {
+    height: 0;
+    opacity: 0;
+  }
+}
+
+/* 动画工具类 */
+.animate-fade-in {
+  animation: na-fade-in 0.3s ease-in-out;
+}
+
+.animate-fade-out {
+  animation: na-fade-out 0.3s ease-in-out;
+}
+
+.animate-sidebar-in {
+  animation: na-sidebar-in 0.3s ease-in-out;
+}
+
+.animate-sidebar-out {
+  animation: na-sidebar-out 0.3s ease-in-out;
+}
+
+.animate-collapsible-down {
+  animation: na-collapsible-down 0.2s ease-in-out;
+}
+
+.animate-collapsible-up {
+  animation: na-collapsible-up 0.2s ease-in-out;
+}

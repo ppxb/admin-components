@@ -5,38 +5,39 @@ import { cn } from '@/lib/utils';
 
 interface Props {
   class?: string;
-  style?: Record<string, string | number>;
 }
+
 const props = defineProps<Props>();
 
 const { collapsed } = useSidebar();
 
 const containerClass = computed(() => {
   return cn(
+    'min-h-screen w-full',
     'grid transition-[grid-template-columns] duration-300 ease-in-out',
-    'overflow-x-clip min-h-[var(--ca-layout-height)]',
-    '[--ca-layout-height:100dvh] [--ca-header-height:64px]',
+    'overflow-x-clip',
     props.class,
   );
 });
 
 const containerStyle = computed(() => {
-  const baseStyle = {
-    '--ca-sidebar-width': collapsed.value ? '0px' : '268px',
-    gridTemplate: `"sidebar header" var(--ca-header-height)
-                   "sidebar main" 1fr / var(--ca-sidebar-width) 1fr`,
-    '--ca-top-reserve-height': 'var(--ca-banner-height, 0px)',
-  } as const;
-  return { ...baseStyle, ...(props.style || {}) };
+  const sidebarCol = collapsed.value ? '0px' : '268px';
+
+  return {
+    '--sidebar-width': '268px',
+    '--sidebar-col': sidebarCol,
+    '--header-height': '64px',
+    gridTemplate: `"sidebar header" var(--header-height)
+                   "sidebar main" 1fr / minmax(var(--sidebar-col), auto) 1fr`,
+  } as Record<string, string>;
 });
 </script>
 
 <template>
   <div
     :class="containerClass"
-    :data-sidebar-collapsed="collapsed"
     :style="containerStyle"
-    v-bind="$attrs"
+    :data-sidebar-collapsed="collapsed"
   >
     <slot />
   </div>
