@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Bell, Menu, Search, Settings } from 'lucide-vue-next';
+import { Bell, Menu, Settings } from 'lucide-vue-next';
 import { computed } from 'vue';
 import { useSidebar } from '@/composables/use-sidebar';
 import { cn } from '@/lib/utils';

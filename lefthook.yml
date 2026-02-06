@@ -9,7 +9,7 @@ pre-commit:
       glob: '*.{js,ts}'
     lint-style:
       run: pnpm prettier --cache --ignore-unknown --write {staged_files} && pnpm stylelint --fix --allow-empty-input {staged_files}
-      glob: '*.{styl,html,vue,css}'
+      glob: '*.{styl,html,css}'
     lint-package:
       run: pnpm prettier --cache --write {staged_files}
       glob: package.json

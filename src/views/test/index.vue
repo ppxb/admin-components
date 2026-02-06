@@ -17,7 +17,9 @@ const { collapsed, hovered } = useSidebar();
       <main class="flex-1 overflow-auto p-6 pt-26">
         <div class="mx-auto max-w-6xl space-y-8">
           <section class="rounded-lg border bg-red-500 p-6 shadow-sm">
-            <h2 class="mb-4 text-2xl font-bold">欢迎使用 Vue3 布局系统 🎉</h2>
+            <h2 class="mb-4 text-2xl font-bold">
+              欢迎使用 Vue3 布局系统 🎉
+            </h2>
             <p class="text-muted-foreground mb-4">
               响应式布局，完全参考 Fumadocs 的实现方式：
             </p>
@@ -46,7 +48,9 @@ const { collapsed, hovered } = useSidebar();
           </section>
 
           <section class="bg-card rounded-lg border p-6 shadow-sm">
-            <h3 class="mb-3 text-lg font-semibold">💡 使用说明</h3>
+            <h3 class="mb-3 text-lg font-semibold">
+              💡 使用说明
+            </h3>
             <div class="text-muted-foreground space-y-4 text-sm">
               <div class="bg-muted/50 rounded-md p-4">
                 <strong class="text-foreground mb-2 block">🖥️ 桌面端：</strong>
@@ -73,7 +77,9 @@ const { collapsed, hovered } = useSidebar();
           <section
             class="from-primary/5 to-primary/10 rounded-lg border bg-linear-to-br p-6 shadow-sm"
           >
-            <h3 class="mb-3 text-lg font-semibold">📊 当前状态</h3>
+            <h3 class="mb-3 text-lg font-semibold">
+              📊 当前状态
+            </h3>
             <div class="grid gap-3 sm:grid-cols-2">
               <div
                 class="bg-background/80 flex items-center gap-3 rounded-md p-3 backdrop-blur"
@@ -83,7 +89,9 @@ const { collapsed, hovered } = useSidebar();
                   :class="[collapsed ? 'bg-amber-500' : 'bg-green-500']"
                 />
                 <div>
-                  <div class="text-muted-foreground text-xs">侧边栏</div>
+                  <div class="text-muted-foreground text-xs">
+                    侧边栏
+                  </div>
                   <div class="font-semibold">
                     {{ collapsed ? '已折叠' : '已展开' }}
                   </div>
@@ -97,7 +105,9 @@ const { collapsed, hovered } = useSidebar();
                   :class="[hovered ? 'bg-blue-500' : 'bg-gray-400']"
                 />
                 <div>
-                  <div class="text-muted-foreground text-xs">悬停状态</div>
+                  <div class="text-muted-foreground text-xs">
+                    悬停状态
+                  </div>
                   <div class="font-semibold">
                     {{ hovered ? '悬停中' : '未悬停' }}
                   </div>
@@ -107,7 +117,9 @@ const { collapsed, hovered } = useSidebar();
           </section>
 
           <section class="space-y-3">
-            <h3 class="text-lg font-semibold">📦 内容示例</h3>
+            <h3 class="text-lg font-semibold">
+              📦 内容示例
+            </h3>
             <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               <div
                 v-for="i in 9"
