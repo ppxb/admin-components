@@ -9,8 +9,17 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { cn } from '@/lib/utils';
 import { i18n, loadLocaleMessages } from '@/locales';
 
+withDefaults(
+  defineProps<{
+    isLogin?: boolean;
+  }>(),
+  {
+    isLogin: false,
+  },
+);
 const languages = [
   { value: 'zh-CN' as const, label: '简体中文' },
   { value: 'en-US' as const, label: 'English' },
@@ -26,7 +35,11 @@ async function changeLanguage(lang: SupportedLanguagesType) {
 <template>
   <DropdownMenu>
     <DropdownMenuTrigger as-child>
-      <Button variant="ghost" size="icon-sm" class="rounded-xl border bg-white">
+      <Button
+        variant="ghost"
+        size="icon-sm"
+        :class="cn('rounded-lg', isLogin && 'bg-background border')"
+      >
         <LucideLanguage />
         <span class="sr-only">Switch language</span>
       </Button>

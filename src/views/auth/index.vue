@@ -18,12 +18,12 @@ const loginType = ref<'account' | 'phone' | 'email'>('account');
     <div className="w-full max-w-sm md:max-w-4xl">
       <div class="mb-8 flex items-center justify-between md:justify-end">
         <div class="flex items-center gap-2 md:hidden">
-          <img src="/logo.svg?url" alt="logo" class="w-6 md:w-8">
+          <img src="/logo.svg?url" alt="logo" class="w-6 md:w-8" />
           <div class="font-bold md:text-lg">
             {{ appTitle }}
           </div>
         </div>
-        <ToggleLanguage />
+        <ToggleLanguage :is-login="true" />
       </div>
 
       <div class="flex flex-col gap-6">
@@ -32,7 +32,7 @@ const loginType = ref<'account' | 'phone' | 'email'>('account');
             <AccountLogin v-if="loginType === 'account'" />
             <div class="bg-background relative hidden justify-end md:flex">
               <div class="flex h-fit items-center gap-2 p-8">
-                <img src="/logo.svg?url" alt="logo" class="w-6 md:w-8">
+                <img src="/logo.svg?url" alt="logo" class="w-6 md:w-8" />
                 <div class="font-bold md:text-lg">
                   {{ appTitle }}
                 </div>
