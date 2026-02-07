@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PanelLeft, Sidebar as SidebarIcon } from 'lucide-vue-next';
+import { PanelLeft } from 'lucide-vue-next';
 import { computed, ref } from 'vue';
 import { useSidebar } from '@/composables/use-sidebar';
 import { cn } from '@/lib/utils';
