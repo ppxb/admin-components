@@ -28,6 +28,7 @@ const sidebarClass = computed(() => {
     'pointer-events-auto',
     // 折叠状态
     collapsed.value && [
+      'shadow-2xl',
       // 完全隐藏（向左移出）
       '-translate-x-[268px] rtl:translate-x-[268px]',
       // 悬停时显示
@@ -80,26 +81,6 @@ const collapseButtonClass = cn(
   'transition-all hover:bg-accent',
   'z-10',
   'hidden md:flex',
-);
-
-// 浮动面板（折叠后显示在左上角）
-const floatingPanelClass = computed(() => {
-  return cn(
-    'fixed top-4 start-4',
-    'flex gap-0.5 p-0.5',
-    'rounded-xl border',
-    'bg-muted text-muted-foreground',
-    'z-10 transition-opacity duration-200',
-    // 只在折叠且未悬停时显示
-    (!collapsed.value || hovered.value) && 'pointer-events-none opacity-0',
-  );
-});
-
-const floatingButtonClass = cn(
-  'h-8 w-8 inline-flex items-center justify-center',
-  'rounded-lg',
-  'transition-colors',
-  'hover:bg-accent hover:text-accent-foreground',
 );
 </script>
 
@@ -157,17 +138,6 @@ const floatingButtonClass = cn(
         </slot>
       </div>
     </aside>
-  </div>
-
-  <!-- 桌面端：浮动控制面板（折叠时显示） -->
-  <div :class="floatingPanelClass">
-    <button
-      :class="floatingButtonClass"
-      aria-label="Open sidebar"
-      @click="toggleSidebar"
-    >
-      <SidebarIcon class="h-4 w-4" />
-    </button>
   </div>
 
   <!-- 移动端：遮罩层 -->

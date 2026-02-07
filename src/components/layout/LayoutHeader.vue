@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { Bell, Menu, Settings } from 'lucide-vue-next';
+import { Bell, Menu, PanelLeft, Settings } from 'lucide-vue-next';
 import { computed } from 'vue';
 import ToggleLanguage from '@/components/toggle-language.vue';
+import { Button } from '@/components/ui/button';
 import { useSidebar } from '@/composables/use-sidebar';
 import { cn } from '@/lib/utils';
 
@@ -13,16 +14,17 @@ const props = defineProps<Props>();
 
 const { collapsed, toggleSidebar } = useSidebar();
 
+const appTitle = import.meta.env.VITE_APP_TITLE;
+
 const headerClass = computed(() => {
   return cn(
-    'absolute top-0 right-0',
-    'flex justify-end items-center gap-4',
-    'border-b bg-background/80 backdrop-blur-sm',
+    'absolute top-0 right-0 left-0',
+    'flex justify-between items-center gap-20',
+    'border-b bg-background/60 backdrop-blur-sm',
     'px-4 h-16',
     'transition-all duration-200',
-    !collapsed.value && 'left-0',
     collapsed.value && [
-      'md:top-4 md:mx-4 md:rounded-2xl md:border md:absolute',
+      'md:top-4 md:left-54 md:right-54 md:rounded-3xl md:border md:bg-transparent md:border-none backdrop-blur-none',
     ],
     props.class,
   );
@@ -41,7 +43,46 @@ const headerClass = computed(() => {
 
     <h1 class="text-xl font-semibold md:hidden">Vue3 布局</h1>
 
-    <div class="flex items-center gap-2">
+    <div
+      class="flex-1 bg-blue-200"
+      :class="
+        collapsed
+          ? 'bg-background/60! rounded-xl border p-2 backdrop-blur-sm'
+          : ''
+      "
+    >
+      <Button
+        variant="ghost"
+        size="icon-sm"
+        class="rounded-lg"
+        @click="toggleSidebar"
+      >
+        <PanelLeft />
+      </Button>
+    </div>
+    <div
+      class="flex-2 bg-amber-500"
+      :class="
+        collapsed
+          ? 'bg-background/60! rounded-xl border px-4 py-3 backdrop-blur-sm'
+          : ''
+      "
+    >
+      <div class="flex items-center gap-2">
+        <img src="/logo.svg?url" alt="logo" class="size-6" />
+        <div class="font-bold md:text-lg">
+          {{ appTitle }}
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex items-center gap-2"
+      :class="
+        collapsed
+          ? 'bg-background/60 rounded-xl border px-2 backdrop-blur-sm'
+          : ''
+      "
+    >
       <button
         class="hover:bg-accent relative hidden h-9 w-9 items-center justify-center rounded-lg transition-colors md:inline-flex"
         aria-label="通知"
