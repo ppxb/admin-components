@@ -1,6 +1,6 @@
 import antfu from '@antfu/eslint-config';
+import prettier from 'eslint-config-prettier';
 
 export default antfu({
   stylistic: false,
-  formatters: false,
-});
+}).append(prettier);
