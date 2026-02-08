@@ -5,6 +5,7 @@ import { setupRouter } from '@/router';
 import { initStores } from '@/stores';
 
 import App from './App.vue';
+import { usePreferencesStore } from './stores/modules/preferences';
 import '@/styles/index.css';
 
 async function bootstrap() {
@@ -15,6 +16,9 @@ async function bootstrap() {
   await setupRouter(app);
 
   initStores(app, { namespace: 'continew-admin' });
+
+  const preferences = usePreferencesStore();
+  preferences.init();
 
   app.mount('#app');
 }

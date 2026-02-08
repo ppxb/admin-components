@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue';
-import { LucideMoon, LucideSun } from '@/components/icons';
+import { computed, ref, watch } from 'vue';
+import { LucideMonitor, LucideMoon, LucideSun } from '@/components/icons';
 import { Button } from '@/components/ui/button';
-import { preferencesManager } from '@/layouts/preferences/preferences';
-import { usePreferences } from '@/layouts/preferences/use-preferences';
 import { cn } from '@/lib/utils';
+import { usePreferencesStore } from '@/stores/modules/preferences';
 
 withDefaults(
   defineProps<{
@@ -15,26 +14,35 @@ withDefaults(
   },
 );
 
-const { theme } = usePreferences();
+const preferencesStore = usePreferencesStore();
 
-const currentTheme = ref(theme.value);
-
-watch(theme, (newTheme) => {
-  currentTheme.value = newTheme;
+const currentMode = computed(() => {
+  return preferencesStore.preferences.theme.mode;
 });
 
-type Theme = 'light' | 'dark';
-
 const toggleTheme = () => {
-  const themes = ['light', 'dark'] as const;
-  const currentIndex = themes.indexOf(currentTheme.value as Theme);
-  const nextIndex = (currentIndex + 1) % themes.length;
-  const nextTheme = themes[nextIndex];
+  const modes = ['light', 'dark', 'auto'] as const;
+  const currentIndex = modes.indexOf(currentMode.value);
+  const nextIndex = (currentIndex + 1) % modes.length;
+  const nextMode = modes[nextIndex];
 
-  preferencesManager.updatePreferences({
-    theme: { mode: nextTheme },
+  preferencesStore.updatePreferences({
+    theme: { mode: nextMode },
   });
 };
+
+const ThemeIcon = computed(() => {
+  switch (currentMode.value) {
+    case 'light':
+      return LucideMoon;
+    case 'dark':
+      return LucideSun;
+    case 'auto':
+      return LucideMonitor;
+    default:
+      return LucideSun;
+  }
+});
 </script>
 
 <template>
@@ -44,12 +52,7 @@ const toggleTheme = () => {
     :class="cn('rounded-lg', isLogin && 'bg-background border')"
     @click="toggleTheme"
   >
-    <LucideSun
-      class="absolute scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90"
-    />
-    <LucideMoon
-      class="absolute scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0"
-    />
+    <component :is="ThemeIcon" class="size-4" />
     <span class="sr-only">Switch Theme</span>
   </Button>
 </template>
