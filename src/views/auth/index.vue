@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import ToggleLanguage from '@/components/toggle-language.vue';
+import ToggleLanguage from '@/components/LanguageToggle.vue';
+import ThemeToggle from '@/components/ThemeToggle.vue';
 import { Card, CardContent } from '@/components/ui/card';
 import { FieldDescription } from '@/components/ui/field';
 import { Ripple } from '@/components/ui/ripple';
@@ -23,7 +24,10 @@ const loginType = ref<'account' | 'phone' | 'email'>('account');
             {{ appTitle }}
           </div>
         </div>
-        <ToggleLanguage :is-login="true" />
+        <div class="flex gap-2">
+          <ThemeToggle :is-login="true" />
+          <ToggleLanguage :is-login="true" />
+        </div>
       </div>
 
       <div class="flex flex-col gap-6">

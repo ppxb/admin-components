@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Bell, Menu, PanelLeft, Settings } from 'lucide-vue-next';
 import { computed } from 'vue';
-import ToggleLanguage from '@/components/toggle-language.vue';
+import ToggleLanguage from '@/components/LanguageToggle.vue';
 import { Button } from '@/components/ui/button';
 import { useSidebar } from '@/composables/use-sidebar';
 import { cn } from '@/lib/utils';
