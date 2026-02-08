@@ -20,6 +20,7 @@ withDefaults(
     isLogin: false,
   },
 );
+
 const languages = [
   { value: 'zh-CN' as const, label: '简体中文' },
   { value: 'en-US' as const, label: 'English' },
