@@ -2,6 +2,7 @@
 import { toTypedSchema } from '@vee-validate/zod';
 import { useForm, Field as VeeField } from 'vee-validate';
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
+import { useRouter } from 'vue-router';
 import * as z from 'zod';
 import { fetchImgCaptcha } from '@/apis/captcha';
 import { Button } from '@/components/ui/button';
@@ -12,15 +13,18 @@ import {
   FieldGroup,
 } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
-import { $t } from '@/locales';
+import { useI18n } from '@/locales';
+
+const { t } = useI18n();
+const router = useRouter();
 
 const formSchema = computed(() =>
   toTypedSchema(
     z.object({
       tenantId: z.string().optional(),
-      username: z.string().min(1, $t('auth.account.form.username.validator')),
-      password: z.string().min(1, $t('auth.account.form.password.validator')),
-      captcha: z.string().length(4, $t('auth.account.form.captcha.validator')),
+      username: z.string().min(1, t('auth.account.form.username.validator')),
+      password: z.string().min(1, t('auth.account.form.password.validator')),
+      captcha: z.string().length(4, t('auth.account.form.captcha.validator')),
     }),
   ),
 );
@@ -45,6 +49,8 @@ let timer: ReturnType<typeof setTimeout> | null = null;
 const onSubmit = handleSubmit((values) => {
   // eslint-disable-next-line no-console
   console.log('Logging in with ', values);
+
+  router.push('/test');
 });
 
 async function getImgCaptcha() {
@@ -88,10 +94,10 @@ onBeforeUnmount(() => {
     <FieldGroup>
       <div class="flex flex-col gap-2">
         <h1 class="text-2xl font-bold">
-          {{ $t('auth.account.title') }}
+          {{ t('auth.account.title') }}
         </h1>
         <p class="text-muted-foreground text-sm text-balance">
-          {{ $t('auth.account.desc') }}
+          {{ t('auth.account.desc') }}
         </p>
       </div>
 
@@ -99,7 +105,7 @@ onBeforeUnmount(() => {
         <Field :data-invalid="!!errors.length">
           <Input
             v-bind="field"
-            :placeholder="$t('auth.account.form.tenant.placeholder')"
+            :placeholder="t('auth.account.form.tenant.placeholder')"
             autocomplete="off"
             :aria-invalid="!!errors.length"
           />
@@ -111,7 +117,7 @@ onBeforeUnmount(() => {
         <Field :data-invalid="!!errors.length">
           <Input
             :model-value="field.value"
-            :placeholder="$t('auth.account.form.username.placeholder')"
+            :placeholder="t('auth.account.form.username.placeholder')"
             autocomplete="username"
             :aria-invalid="!!errors.length"
             @update:model-value="field.onChange"
@@ -125,7 +131,7 @@ onBeforeUnmount(() => {
           <Input
             :model-value="field.value"
             type="password"
-            :placeholder="$t('auth.account.form.password.placeholder')"
+            :placeholder="t('auth.account.form.password.placeholder')"
             autocomplete="current-password"
             :aria-invalid="!!errors.length"
             @update:model-value="field.onChange"
@@ -135,7 +141,7 @@ onBeforeUnmount(() => {
             <div
               class="hover:text-primary text-sm no-underline underline-offset-2 hover:cursor-pointer hover:underline"
             >
-              {{ $t('auth.account.forgetPwd') }}
+              {{ t('auth.account.forgetPwd') }}
             </div>
           </FieldDescription>
         </Field>
@@ -146,7 +152,7 @@ onBeforeUnmount(() => {
           <div class="flex gap-2">
             <Input
               v-bind="field"
-              :placeholder="$t('auth.account.form.captcha.placeholder')"
+              :placeholder="t('auth.account.form.captcha.placeholder')"
               class="flex-1"
               autocomplete="off"
               :aria-invalid="!!errors.length"
@@ -165,7 +171,7 @@ onBeforeUnmount(() => {
                 class="absolute inset-0 flex items-center justify-center rounded-lg bg-black/60 backdrop-blur hover:cursor-pointer"
               >
                 <span class="text-xs text-white">
-                  {{ $t('auth.account.form.captcha.expired') }}
+                  {{ t('auth.account.form.captcha.expired') }}
                 </span>
               </div>
             </div>
@@ -176,13 +182,13 @@ onBeforeUnmount(() => {
 
       <Field>
         <Button type="submit" form="login-form">
-          {{ $t('auth.account.submit') }}
+          {{ t('auth.account.submit') }}
         </Button>
       </Field>
 
       <FieldDescription class="text-center">
-        {{ $t('auth.account.noAccount') }}
-        <a href="#"> {{ $t('auth.account.signUp') }}</a>
+        {{ t('auth.account.noAccount') }}
+        <RouterLink to="/signUp"> {{ t('auth.account.signUp') }}</RouterLink>
       </FieldDescription>
     </FieldGroup>
   </form>

@@ -1,12 +1,12 @@
 import type { App } from 'vue';
-import type { Locale, useI18n } from 'vue-i18n';
+import type { Locale } from 'vue-i18n';
 import type {
   ImportLocaleFn,
   LocaleSetupOptions,
   SupportedLanguagesType,
 } from '@/types/i18n';
 import { unref } from 'vue';
-import { createI18n } from 'vue-i18n';
+import { createI18n, useI18n } from 'vue-i18n';
 
 const i18n = createI18n({
   globalInjection: true,
@@ -118,8 +118,5 @@ async function setupI18n(app: App, options: LocaleSetupOptions = {}) {
     });
   }
 }
-
-export const $t = i18n.global.t;
-export const $te = i18n.global.te;
 
 export { i18n, loadLocaleMessages, setupI18n, useI18n };
