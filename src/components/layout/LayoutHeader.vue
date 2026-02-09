@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { Bell, Menu, PanelLeft, Settings } from 'lucide-vue-next';
 import { computed } from 'vue';
-import ToggleLanguage from '@/components/LanguageToggle.vue';
 import { Button } from '@/components/ui/button';
 import { useSidebar } from '@/composables/use-sidebar';
 import { cn } from '@/lib/utils';
+import PreferencesWidget from '@/components/widgets/PreferencesWidget.vue';
 
 interface Props {
   class?: string;
@@ -22,7 +22,7 @@ const headerClass = computed(() => {
     'flex justify-between items-center gap-20',
     'border-b bg-background/60 backdrop-blur-sm',
     'px-4 h-16',
-    'transition-all duration-200',
+    'transition-[inset] duration-200',
     collapsed.value && [
       'md:top-4 md:left-54 md:right-54 md:rounded-3xl md:border md:bg-transparent md:border-none backdrop-blur-none',
     ],
@@ -100,7 +100,7 @@ const headerClass = computed(() => {
         <Settings class="h-4 w-4" />
       </button>
 
-      <ToggleLanguage />
+      <PreferencesWidget />
 
       <div class="bg-border mx-1 hidden h-6 w-px md:block" />
 

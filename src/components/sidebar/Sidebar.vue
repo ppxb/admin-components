@@ -24,7 +24,7 @@ const sidebarClass = computed(() => {
     'absolute start-0 inset-y-0',
     'flex flex-col w-[268px]',
     'bg-card text-sm border-r',
-    'transition-all duration-200 ease-in-out',
+    'transition-[translate,inset] duration-200 ease-in-out',
     'pointer-events-auto',
     // 折叠状态
     collapsed.value && [
