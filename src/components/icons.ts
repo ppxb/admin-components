@@ -6,3 +6,5 @@ export const LucideHome = createIconifyIcon('lucide:house');
 export const LucideSun = createIconifyIcon('lucide:sun');
 export const LucideMoon = createIconifyIcon('lucide:moon');
 export const LucideMonitor = createIconifyIcon('lucide:monitor');
+export const LucideFullscreen = createIconifyIcon('lucide:maximize');
+export const LucideExitFullscreen = createIconifyIcon('lucide:minimize');
