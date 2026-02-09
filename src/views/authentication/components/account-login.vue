@@ -188,7 +188,9 @@ onBeforeUnmount(() => {
 
       <FieldDescription class="text-center">
         {{ t('auth.account.noAccount') }}
-        <RouterLink to="/signUp"> {{ t('auth.account.signUp') }}</RouterLink>
+        <RouterLink to="/signUp">
+          {{ t('auth.account.signUp') }}
+        </RouterLink>
       </FieldDescription>
     </FieldGroup>
   </form>

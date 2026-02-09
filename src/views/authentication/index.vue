@@ -3,8 +3,8 @@ import { ref } from 'vue';
 import { Card, CardContent } from '@/components/ui/card';
 import { FieldDescription } from '@/components/ui/field';
 import { Ripple } from '@/components/ui/ripple';
-import AccountLogin from './components/account-login.vue';
 import PreferencesWidget from '@/components/widgets/PreferencesWidget.vue';
+import AccountLogin from './components/account-login.vue';
 
 const appTitle = import.meta.env.VITE_APP_TITLE;
 
@@ -24,7 +24,7 @@ const loginType = ref<'account' | 'phone' | 'email'>('account');
           </div>
         </div>
         <div class="flex gap-2">
-          <PreferencesWidget :isLogin="true" />
+          <PreferencesWidget :is-login="true" />
         </div>
       </div>
 
