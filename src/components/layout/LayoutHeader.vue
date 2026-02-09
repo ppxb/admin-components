@@ -2,9 +2,9 @@
 import { Bell, Menu, PanelLeft, Settings } from 'lucide-vue-next';
 import { computed } from 'vue';
 import { Button } from '@/components/ui/button';
+import PreferencesWidget from '@/components/widgets/PreferencesWidget.vue';
 import { useSidebar } from '@/composables/use-sidebar';
 import { cn } from '@/lib/utils';
-import PreferencesWidget from '@/components/widgets/PreferencesWidget.vue';
 
 interface Props {
   class?: string;

@@ -6,11 +6,11 @@ const coreRoutes: RouteRecordRaw[] = [
     redirect: '/auth',
   },
   {
-    component: () => import('@/views/auth/index.vue'),
+    component: () => import('@/views/authentication/index.vue'),
     meta: {
-      title: 'Auth',
+      title: 'Authentication',
     },
-    name: 'Auth',
+    name: 'Authenticationh',
     path: '/auth',
   },
   {
