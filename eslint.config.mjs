@@ -3,4 +3,4 @@ import prettier from 'eslint-config-prettier';
 
 export default antfu({
   stylistic: false,
-}).append(prettier);
+}).override(prettier);
